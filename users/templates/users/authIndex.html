@@ -1,0 +1,57 @@
+{%extends 'users/authBase.html'%}
+{%load static%}
+{%block content%}
+
+<section id = "main" class = "mb-20">
+			<div class = "container-fluid">
+				<div class = "row">
+					<div class = "col-md-6 center">
+						<div>
+							<div class = "m-30">
+								<!--
+								<img src = "{%static 'bootstrapIcons/icons/book-fill.svg'%}">
+								-->
+
+								<div>
+									<h1 id = "raven">Raven</h1>
+									<hr>
+									<p id = "signOff">All Your Invoices in One Place
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class = "col-md-6" style = "">
+						<div id = "formSection" style = "">
+							<form method = "post" action = "">
+								{%csrf_token%}
+								<h5 class = "center">Continue to Your Account</h5>
+								<div class = "width50">
+									<img src = "{%static 'bootstrapIcons/icons/mailbox.svg'%}">
+									<input type = "text" name = "email" placeholder = "email@email.com" class = "">
+								</div>
+								<hr class = "width50">
+								<div class = "width50">
+									<img src = "{%static 'bootstrapIcons/icons/pen-fill.svg'%}">
+									<input type = "password" name = "password" class = "" placeholder = "password">
+								</div>
+								<hr class = "width50">
+								<div class = "width50" id = "submit">
+				
+									<img src = "{%static 'bootstrapIcons/icons/arrow-bar-right.svg'%}" class = "invert">
+						
+									<input type = "submit" value = "Sign in" class = "" >
+								</div>
+							</form>
+							<div>
+								<p class = "text-center">Don't have an Account? <a href = "{%url 'users:register'%}">Sign Up </a></p>
+							</div>
+						</div>
+					</div>
+				</div>
+		</section>
+
+{%endblock%}
+
+{%block js%}
+{%endblock%}

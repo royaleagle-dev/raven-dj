@@ -1,0 +1,52 @@
+{%extends "users/authBase.html"%}
+
+{%load static%}
+
+{%block content%}
+	<section class = "row">
+		<div class = "col">
+			<div class = "">
+				<form>
+					{%csrf_token%}
+					<div class = "row">
+						<div class = "offset-md-4 col-md-4">
+							<div class = "register">
+								<input type = "text" placeholder = "Firstname" name = "firstname" required>
+								<input type = "text" placeholder = "Lastname" name = "lastname" required>
+								<input type = "text" placeholder = "Other Name" name = "othername" required>
+								<input type = "date" placeholder = "Date of Birth" name = "dob" required>
+								<input type = "password" placeholder = "Password" name = "password" id = "pass" required>
+								<input type = "password" placeholder = "Confirm Password" id = "confirmPass" required>
+								<input type = "email" placeholder = "Your Email" name = "email" required>
+								<div>
+									<button type = "submit" name = "submit" id = "submit" class = "btn btn-primary" style = "width:50%">Register</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</section>
+{%endblock%}
+
+{%block js%}
+<script>
+	let pass = $("#pass");
+	let confirmPass = $("#confirmPass");
+	let submit = document.querySelector("#submit");
+
+	confirmPass.blur(function(){
+		if(pass.val() != confirmPass.val()){
+			alert("Passwords does not match");
+			submit.disabled=true;
+			pass.css('color', 'red');
+			confirmPass.css('color', 'red');
+		}else{
+			submit.disabled=false;
+			pass.css('color', 'green');
+			confirmPass.css('color', 'green');
+		}
+	})
+</script>
+{%endblock%}
