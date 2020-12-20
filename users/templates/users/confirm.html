@@ -1,0 +1,33 @@
+{%extends "users/authBase.html"%}
+
+{%load static%}
+
+{%block content%}
+	<section class = "row">
+		<div class = "col">
+			<div class = "">
+				<form method = "post" action = "">
+					{%csrf_token%}
+					<div class = "row">
+						<div class = "offset-md-4 col-md-4">
+							<div class = "register">
+								<h2>Verify Email</h2>
+								<hr>
+								<input type = "text" placeholder = "Verification Code" name = "firstname" required style = "margin-bottom:7%">
+									<button type = "submit" name = "submit" id = "submit" class = "btn btn-primary" style = "width:50%;margin-bottom:10%">Verify</button>
+									<p>An Email has been sent to the email provided in the registration form, Pls check and enter your verification code here</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</section>
+{%endblock%}
+
+{%block js%}
+<script>
+
+</script>
+{%endblock%}
