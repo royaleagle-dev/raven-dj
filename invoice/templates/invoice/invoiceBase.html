@@ -35,14 +35,14 @@
 		</section>
 		</div>
 
-		<section class = "container" style = "padding-top:7%;">
+		<section class = "container" style = "padding-top:7%;" id = "bg">
 			<div class = "row">
 				<div class = "col-md-2">
 					{%block sidebar%}
 					<div style = "width:100%;">
 						<small style = "">Close X </small>
 						<ul id = "sidebar">
-							<li><a href = "">Add Invoice</a></li>
+							<li><a id = "addInvoiceBtn" onclick = "popOpen()">Add Invoice</a></li>
 							<li><a href = "">All Invoices</a></li>
 							<li><a href = "">Sent Invoices</a></li>
 							<li><a href = "">Trash</a></li>
@@ -58,8 +58,27 @@
 			</div>
 		</section>
 
-		<section id = "addInvoice-wrapper">
+		<section id = "addInvoice-wrapper" style = "display:none;">
 			<div id = "addInvoice">
+				<form>
+					<h3 style = "margin-bottom:5px;" class = "text-center">Add Invoice</h3>
+					<input class = "form-control" name = "heading" type = "text" placeholder = "heading">
+					<hr>
+					<input class = "form-control" name = "amount" placeholder = "Amount Due" type = "number">
+					<hr>
+					<input class = "form-control" name = "email" placeholder = "Recipent Email" type = "email">
+					<hr>
+					<input class = "form-control" name = "transactionDate" placeholder = "Transaction Date" type = "date">
+					<hr>
+					<div class = "row">
+						<div class = "offset-md-2 col-md-4">
+							<button class = "btn btn-info btn-block" type = "submit">Save</button>
+						</div>
+						<div class = "col-md-4">
+							<a class = "btn btn-dark btn-block">Cancel</a>
+						</div>
+					</div>
+				</form>
 			</div>
 		</section>
 
@@ -84,6 +103,18 @@
 
 				let body = document.querySelector('body')
 				body.style.overflow = 'auto';
+			}
+		</script>
+
+		<script>
+			const addInvoiceBtn = document.querySelector("#addInvoiceBtn");
+			const pop = document.querySelector('#addInvoice-wrapper')
+			const bg = document.querySelector("#bg");
+			//let popElem = document.querySelector()
+
+			function popOpen(){
+				pop.style.display = "block";
+				bg.style.filter = "blur(5px)";
 			}
 		</script>
 		
