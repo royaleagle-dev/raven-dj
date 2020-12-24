@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+{%load static%}
+<html>
+	<head>
+		<link rel = "stylesheet" href = "{%static '/css/theme.css'%}">
+		<meta name = "viewport" content = "width=device-width, initial-scale=1.0, shrink-to-fit=No">
+	</head>
+
+	<body>
+
+		<div class = "preloader-wrapper">
+			<div class = "preloader">
+				<img src = "{%static 'img/loader2.gif'%}" alt = "App Loading">
+			</div>
+		</div>
+
+		<div id = "top">
+		<section id = "topSection">
+			<div class = "row">
+				<div class = "col bg4 color2 left p3">
+					<span style = "margin-right:5%">Email: raven@gmail.com</span>
+					<span style = "">Phone: +2349054719111 </span>
+				</div>
+			</div>
+		</section>
+
+		<section id = "miniNav">
+			<div class = "row">
+				<div class = "col">
+					<ul id = "navigation" class = "right bg3">
+						<li><a  class = "whiteColor" href = "">Account</a></li>
+					</ul>
+				</div>
+			</div>
+		</section>
+		</div>
+
+		<section class = "container" style = "padding-top:7%;">
+			<div class = "row">
+				<div class = "col-md-2">
+					{%block sidebar%}
+					<div style = "width:100%;">
+						<small style = "">Close X </small>
+						<ul id = "sidebar">
+							<li><a href = "">New Invoices</a></li>
+							<li><a href = "">All Invoices</a></li>
+							<li><a href = "">Sent Invoices</a></li>
+							<li><a href = "">Trash</a></li>
+						</ul>
+					</div>
+					{%endblock%}
+				</div>
+
+				<div class = "col-md-8">
+					{%block content%}
+					<p>Show Me</p>
+					{%endblock%}
+				</div>
+			</div>
+		</section>
+
+
+
+		<footer id = "footer" class = "center">
+			<div>
+				(c)Raven 2020
+			</div>
+		</footer>
+
+		<script src = "{%static 'js/jquery-3.5.1.js'%}"></script>
+
+		<script>
+			$(document).ready(function(){
+				$('body').addClass('preloader-site');
+			})
+
+			window.onload = function(){
+				$('body').removeClass('preloader-site');
+				$('.preloader-wrapper').fadeOut();
+
+				let body = document.querySelector('body')
+				body.style.overflow = 'auto';
+			}
+		</script>
+		
+		{%block js%}
+		{%endblock%}
+	</body>
+</html>
