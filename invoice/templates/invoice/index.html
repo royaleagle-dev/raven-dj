@@ -1,1 +1,15 @@
 {%extends "invoice/invoiceBase.html"%}
+
+{%block content%}
+	<div style = "background-color:black;padding:10px;text-align:right;color:white;margin-bottom:2%">
+		Last Invoice(s) issued -- 5
+	</div>
+	<div>
+		{%for items in last_five_invoices%}
+			<div style = "padding:10px;">
+				<span style = "font-weight:bold;font-size:14px;">{{items.id}}</span>
+				<button class = "btn btn-primary float-right btn-sm">{{items.get_status_display}}</button>
+			</div>
+		{%endfor%}
+	</div>
+{%endblock%}

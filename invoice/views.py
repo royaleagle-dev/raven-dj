@@ -7,7 +7,11 @@ from django.views import View
 class IndexView(View):
 	
 	def get(self, request):
-		return render(request, "invoice/index.html")
+		last_five_invoices = Invoice.objects.all().order_by('-transaction_date')
+		ctx = {
+		'last_five_invoices':last_five_invoices,
+		}
+		return render(request, "invoice/index.html", ctx)
 
 	def post(self, request):
 		pass

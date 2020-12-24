@@ -42,7 +42,7 @@
 					<div style = "width:100%;">
 						<small style = "">Close X </small>
 						<ul id = "sidebar">
-							<li><a href = "">New Invoices</a></li>
+							<li><a href = "">Add Invoice</a></li>
 							<li><a href = "">All Invoices</a></li>
 							<li><a href = "">Sent Invoices</a></li>
 							<li><a href = "">Trash</a></li>
@@ -51,11 +51,15 @@
 					{%endblock%}
 				</div>
 
-				<div class = "col-md-8">
+				<div class = "offset-md-1 col-md-8">
 					{%block content%}
-					<p>Show Me</p>
 					{%endblock%}
 				</div>
+			</div>
+		</section>
+
+		<section id = "addInvoice-wrapper">
+			<div id = "addInvoice">
 			</div>
 		</section>
 
