@@ -45,7 +45,7 @@ class SignupView(View):
 		password = request.POST.get('password')
 		email = request.POST.get('email')
 
-		user = User(
+		user = User.objects.create_user(
 				username = email,
 				email = email,
 				password = password
@@ -95,7 +95,10 @@ class ConfirmRegister(View):
 
 		if verify == user.verification_code:
 			messages.success(request, "Verification successful")
-			return redirect ("users:profile")
+			return redirect ("users:authIndex")
 		else:
 			messages.warning(request, "Verification not successful, Pls try again")
 			return redirect("users:confirm", username=username)
+
+def profile(request):
+	pass
