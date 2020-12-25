@@ -60,7 +60,9 @@
 
 		<section id = "addInvoice-wrapper" style = "display:none;">
 			<div id = "addInvoice">
-				<form>
+				<div id = "innerAddInvoice">
+				<form method = "post" action = "{%url 'invoice:addInvoice'%}">
+					{%csrf_token%}
 					<h3 style = "margin-bottom:5px;" class = "text-center">Add Invoice</h3>
 					<input class = "form-control" name = "heading" type = "text" placeholder = "heading">
 					<hr>
@@ -69,6 +71,13 @@
 					<input class = "form-control" name = "email" placeholder = "Recipent Email" type = "email">
 					<hr>
 					<input class = "form-control" name = "transactionDate" placeholder = "Transaction Date" type = "date">
+					<hr>
+					<select name = "status" class = "form-control">
+						<option value = "1">Paid</option>
+						<option value = "0">Unpaid</option>
+					</select>
+					<hr>
+					<textarea name = "description" class = "form-control">Transaction Description</textarea>
 					<hr>
 					<div class = "row">
 						<div class = "offset-md-2 col-md-4">
@@ -79,6 +88,7 @@
 						</div>
 					</div>
 				</form>
+				</div>
 			</div>
 		</section>
 
