@@ -1,0 +1,17 @@
+{%extends "invoice/invoiceBase.html"%}
+
+
+{%block content%}
+	<div style = "background-color:black;padding:10px;text-align:right;color:white;margin-bottom:2%">
+		All Invoices
+	</div>
+	<div>
+		{%for items in invoices.all%}
+			<div style = "padding:10px;">
+				<span style = "font-weight:bold;font-size:14px;"><a href = "{%url 'invoice:invoice-detail' items.pk%}">{{items.id}}</a></span>
+				<button class = "btn btn-primary float-right btn-sm">{{items.get_status_display}}</button>
+			</div>
+		{%endfor%}
+	</div>
+	<hr style = "border-top:2px solid black">
+{%endblock%}

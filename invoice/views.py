@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from invoice.models import Invoice
 from django.utils import timezone
-from django.views.generic import ListView
+from django.views.generic import ListView, DetailView
 from django.views import View
 from django.contrib import messages
 
@@ -41,4 +41,20 @@ def addInvoice(request):
 
 		messages.success (request, "Invoice successfully Added")
 		return redirect("invoice:index")
+
+class InvoiceListView(ListView):
+	template_name = "invoice/invoices.html"
+	context_object_name = 'invoices'
+	model = Invoice
+
+	def get_queryset(self):
+		queryset = {
+			'all':Invoice.objects.all(),
+		}
+		return queryset
+
+class InvoiceDetail(DetailView):
+	template_name = 'invoice/invoice-detail.html'
+	context_object_name = 'invoice'
+	model = Invoice
 

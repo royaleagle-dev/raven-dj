@@ -1,0 +1,40 @@
+{%extends "invoice/invoiceBase.html"%}
+
+{%block content%}
+<div>
+	<h2>{{invoice.heading}}</h2>
+	<hr>
+	<div>
+		<div class = "row">
+			<div class = "col-md-6">
+				<p><button class = "btn btn-secondary btn-sm">Issuer:</button> {{request.user}}</p>
+			</div>
+			<div class = "col-md-6">
+				<p><button class = "btn btn-secondary btn-sm">Recipent:</button> {{invoice.email}}</p>
+			</div>
+		</div>
+		<hr>
+		<div class = "row">
+			<div class = "col-md-6">
+				<p><button class = "btn btn-secondary btn-sm">Amount Due:</button>#{{invoice.amount_due}}</p>
+				<p><button class = "btn btn-secondary btn-sm">Transaction Date:</button> {{invoice.transaction_date}}</p>
+			</div>
+			<div class = "col-md-6">
+				<p><button class = "btn btn-secondary btn-sm">Invoice Sent</button> {%if invoice.sent == True%} Yes {%else%} No {%endif%}</p>
+			</div>
+		</div>
+
+		
+		</p>
+		<hr>
+		<div class = "row">
+			<div class = "col text-right">
+				<button class = "btn btn-primary">Send Invoice</button>
+				<button class = "btn btn-danger">Delete Invoice</button>
+				<button class = "btn btn-info">Edit Invoice</button>
+			</div>
+		</div>
+
+	</div>
+</div>
+{%endblock%}

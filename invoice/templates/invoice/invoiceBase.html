@@ -43,7 +43,7 @@
 						<small style = "">Close X </small>
 						<ul id = "sidebar">
 							<li><a id = "addInvoiceBtn" onclick = "popOpen()">Add Invoice</a></li>
-							<li><a href = "">All Invoices</a></li>
+							<li><a href = "{%url 'invoice:invoices'%}">All Invoices</a></li>
 							<li><a href = "">Sent Invoices</a></li>
 							<li><a href = "">Trash</a></li>
 						</ul>
@@ -84,7 +84,7 @@
 							<button class = "btn btn-info btn-block" type = "submit">Save</button>
 						</div>
 						<div class = "col-md-4">
-							<a class = "btn btn-dark btn-block">Cancel</a>
+							<a class = "btn btn-dark btn-block" id = "cancelAdd">Cancel</a>
 						</div>
 					</div>
 				</form>
@@ -125,6 +125,14 @@
 			function popOpen(){
 				pop.style.display = "block";
 				bg.style.filter = "blur(5px)";
+			}
+		</script>
+
+		<script>
+			cancelBtn = document.querySelector('#cancelAdd');
+			cancelBtn.onclick = function(){
+				bg.style.filter = "none";
+				pop.style.display = "none";
 			}
 		</script>
 		

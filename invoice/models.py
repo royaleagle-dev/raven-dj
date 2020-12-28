@@ -17,6 +17,8 @@ class Invoice(models.Model):
 		('u', 'unpaid')
 	)
 	status = models.CharField(max_length = 1, choices = status_choices, default = 'u')
+	sent = models.BooleanField(default = False)
+	trashed = models.BooleanField(default = False)
 
 	def __str__(self):
 		return str(self.id)
