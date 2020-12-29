@@ -94,3 +94,19 @@ class TrashView(View):
 	def post(self, request):
 		pass
 
+def restore(request, id):
+	invoice = get_object_or_404(Invoice, pk=id)
+	invoice.trashed = False
+	invoice.save()
+	messages.success(request, "Invoice Restored Successfully")
+	return redirect('invoice:trash')
+
+class SentInvoices(View):
+	def get(self, request):
+		sent_invoices = Invoice.objects.filter(sent__exact = True)
+		ctx = {
+			'sent_invoices': sent_invoices
+		}
+		return render(request, "invoice/sent-invoice.html", ctx)
+
+

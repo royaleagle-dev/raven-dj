@@ -8,7 +8,11 @@
 		{%for items in trashed_invoices%}
 			<div style = "padding:10px;">
 				<span style = "font-weight:bold;font-size:14px;"><a href = "{%url 'invoice:invoice-detail' items.pk%}">{{items.id}}</a></span>
+
+				<a href = "" class = "float-right btn-sm">Delete</a>
+				<a href = "{%url 'invoice:restore' items.id%}" class = "float-right btn-sm">Restore</a>
 				<button class = "btn btn-primary float-right btn-sm">{{items.get_status_display}}</button>
+				
 			</div>
 		{%endfor%}
 	</div>

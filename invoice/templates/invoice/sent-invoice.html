@@ -1,16 +1,16 @@
 {%extends "invoice/invoiceBase.html"%}
 
 {%block content%}
-	<div style = "background-color:black;padding:10px;text-align:right;color:white;margin-bottom:2%">
-		Last Invoice(s) issued -- 5
+<div style = "background-color:black;padding:10px;text-align:right;color:white;margin-bottom:2%">
+		All Invoices
 	</div>
 	<div>
-		{%for items in last_five_invoices%}
+		{%for items in sent_invoices%}
 			<div style = "padding:10px;">
 				<span style = "font-weight:bold;font-size:14px;"><a href = "{%url 'invoice:invoice-detail' items.pk%}">{{items.id}}</a></span>
 
 				<a href = "{%url 'invoice:delete-invoice' items.id%}" class = "float-right btn-sm">Delete</a>
-				<button class = "btn btn-primary float-right btn-sm">{{items.get_status_display}}</button>
+				<button class = "btn btn-secondary float-right btn-sm">Recipient: {{items.email}}</button>
 
 			</div>
 		{%endfor%}
