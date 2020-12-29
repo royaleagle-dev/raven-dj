@@ -39,15 +39,18 @@
 			<div class = "row">
 				<div class = "col-md-2">
 					{%block sidebar%}
+					{%if user.is_authenticated%}
 					<div style = "width:100%;">
 						<small style = "">Close X </small>
 						<ul id = "sidebar">
 							<li><a id = "addInvoiceBtn" onclick = "popOpen()">Add Invoice</a></li>
 							<li><a href = "{%url 'invoice:invoices'%}">All Invoices</a></li>
 							<li><a href = "">Sent Invoices</a></li>
-							<li><a href = "">Trash</a></li>
+							<li><a href = "{%url 'invoice:trash'%}">Trash</a></li>
 						</ul>
 					</div>
+					{%else%}
+					{%endif%}
 					{%endblock%}
 				</div>
 

@@ -7,7 +7,7 @@
 	<div>
 		<div class = "row">
 			<div class = "col-md-6">
-				<p><button class = "btn btn-secondary btn-sm">Issuer:</button> {{request.user}}</p>
+				<p><button class = "btn btn-secondary btn-sm">Issuer:</button> {{invoice.issuer}}</p>
 			</div>
 			<div class = "col-md-6">
 				<p><button class = "btn btn-secondary btn-sm">Recipent:</button> {{invoice.email}}</p>
@@ -21,6 +21,7 @@
 			</div>
 			<div class = "col-md-6">
 				<p><button class = "btn btn-secondary btn-sm">Invoice Sent</button> {%if invoice.sent == True%} Yes {%else%} No {%endif%}</p>
+				<p><button class = "btn btn-secondary btn-sm">Status</button> {%if invoice.status == 'p'%} Paid {%else%} Unpaid {%endif%}</p>
 			</div>
 		</div>
 
@@ -28,11 +29,17 @@
 		</p>
 		<hr>
 		<div class = "row">
+			{%if request.user.username == invoice.issuer%}
 			<div class = "col text-right">
-				<button class = "btn btn-primary">Send Invoice</button>
-				<button class = "btn btn-danger">Delete Invoice</button>
+				<a href = "{%url 'invoice:send-invoice' invoice.id%}" class = "btn btn-primary">Send Invoice</a>
+				<a href = "{%url 'invoice:delete-invoice' invoice.id%}" class = "btn btn-danger">Delete Invoice</a>
 				<button class = "btn btn-info">Edit Invoice</button>
 			</div>
+			{%else%}
+			<div class = "col text-right">
+				<a href = "" class = "btn btn-success">Pay Now</a>
+			</div>
+			{%endif%}
 		</div>
 
 	</div>
