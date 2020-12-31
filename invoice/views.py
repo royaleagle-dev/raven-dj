@@ -109,4 +109,9 @@ class SentInvoices(View):
 		}
 		return render(request, "invoice/sent-invoice.html", ctx)
 
+def delete_trashed_invoice(request, id):
+	invoice = get_object_or_404(Invoice, pk=id)
+	invoice.delete()
+	return redirect('invoice:trash')
+
 

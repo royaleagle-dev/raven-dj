@@ -2,12 +2,12 @@
 
 {%block content%}
 <div style = "background-color:black;padding:10px;text-align:right;color:white;margin-bottom:2%">
-		All Invoices
+		Sent Invoices
 	</div>
 	<div>
 		{%for items in sent_invoices%}
 			<div style = "padding:10px;">
-				<span style = "font-weight:bold;font-size:14px;"><a href = "{%url 'invoice:invoice-detail' items.pk%}">{{items.id}}</a></span>
+				<span style = "font-weight:bold;font-size:14px;"><a href = "{%url 'invoice:invoice-detail' items.pk%}">{{items.heading}}<br>({{items.id}})</a></span>
 
 				<a href = "{%url 'invoice:delete-invoice' items.id%}" class = "float-right btn-sm">Delete</a>
 				<button class = "btn btn-secondary float-right btn-sm">Recipient: {{items.email}}</button>

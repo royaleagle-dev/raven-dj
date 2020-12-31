@@ -66,7 +66,7 @@
 				<div id = "innerAddInvoice">
 				<form method = "post" action = "{%url 'invoice:addInvoice'%}">
 					{%csrf_token%}
-					<h3 style = "margin-bottom:5px;" class = "text-center">Add Invoice</h3>
+					<h3 style = "margin-bottom:5px;" class = "text-center">Add Invoice <span style = "margin-left:20px;float:right;color:red;" id="shortPopCancel">X</span></h3>
 					<input class = "form-control" name = "heading" type = "text" placeholder = "heading">
 					<hr>
 					<input class = "form-control" name = "amount" placeholder = "Amount Due" type = "number">
@@ -125,6 +125,7 @@
 			const bg = document.querySelector("#bg");
 			//let popElem = document.querySelector()
 
+
 			function popOpen(){
 				pop.style.display = "block";
 				bg.style.filter = "blur(5px)";
@@ -134,6 +135,12 @@
 		<script>
 			cancelBtn = document.querySelector('#cancelAdd');
 			cancelBtn.onclick = function(){
+				bg.style.filter = "none";
+				pop.style.display = "none";
+			}
+
+			shortCancel = document.querySelector("#shortPopCancel");
+			shortCancel.onclick = function(){
 				bg.style.filter = "none";
 				pop.style.display = "none";
 			}

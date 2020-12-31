@@ -13,4 +13,5 @@ urlpatterns = [
 	path('trash/', views.TrashView.as_view(), name = 'trash'),
 	path('restore/<str:id>', views.restore, name = 'restore'),
 	path('sent-invoices/', views.SentInvoices.as_view(), name = 'sent-invoices'),
+	path('delete-trashed-invoice/<str:id>', views.delete_trashed_invoice, name = 'delete-trashed-invoice'),
 ]

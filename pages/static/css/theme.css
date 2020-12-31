@@ -263,7 +263,7 @@ ul#sidebar li{
 }
 
 #addInvoice{
-	top:25%;
+	top:20%;
 	left:35%;
 	position:relative;
 	width:30%;
@@ -283,7 +283,7 @@ ul#sidebar li{
 	height:350px;
 }
 
-::-webkit-scrollbar{
+#addInvoice ::-webkit-scrollbar{
 	width:5px;
 	background-color: rgba(12, 0, 0, 0.2);
 	background:transparent;
